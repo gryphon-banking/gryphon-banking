@@ -16,14 +16,5 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn package
-      
-  deploy:
-    runs-on: [ubuntu-latest]
-    steps:
-    - uses: actions/checkout@v1
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-    - name: Build with Maven
+    - name: Deploy to GitHub Packages
       run: mvn deploy -Dregistry=https://maven.pkg.github.com/gryphon-banking -Dtoken=GH_TOKEN
