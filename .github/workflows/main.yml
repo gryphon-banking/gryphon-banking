@@ -16,7 +16,7 @@ jobs:
     - name: Set up Maven
       uses: s4u/maven-settings-action@v1
       with:
-        servers: '[{"id": "github", "username": "x-access-token", "password": "${GITHUB_TOKEN}"}]'
+        servers: '[{"id": "github", "username": "gryphon-banking", "password": "${GITHUB_TOKEN}"}]'
     - name: Checkout
       uses: actions/checkout@v1
     - name: Build with Maven
@@ -25,4 +25,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run:
-        mvn -B -e -Dmaven.wagon.http.pool=false deploy
+        mvn deploy
