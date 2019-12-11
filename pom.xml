@@ -19,4 +19,12 @@
 		<module>gryphon-domain</module>
 	</modules>
 	
+	<distributionManagement>
+   		<repository>
+     			<id>github</id>
+     			<name>GitHub gryphon-banking Apache Maven Packages</name>
+     			<url>https://maven.pkg.github.com/gryphon-banking/gryphon-banking</url>
+   		</repository>
+	</distributionManagement>
+	
 </project>

@@ -1,11 +1,13 @@
 name: Continuous Integration
 
-on: [push]
+on:
+  push:
+    branches: 
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK
@@ -14,3 +16,9 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn package
+    - name: Deploy to GitHub Packages
+      env:
+        GITHUB_USERNAME: x-access-token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run:
+        mvn --settings settings.xml deploy
