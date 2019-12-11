@@ -18,5 +18,7 @@ jobs:
     - name: Build with Maven
       run: mvn package
     - name: Deploy to GitHub Packages
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run:
-        mvn -X deploy -Dregistry=https://maven.pkg.github.com/gryphon-banking -Dtoken=${{ secrets.GITHUB_TOKEN }}
+        mvn -X deploy -Dregistry=https://maven.pkg.github.com/gryphon-banking -Dtoken=$GH_TOKEN
