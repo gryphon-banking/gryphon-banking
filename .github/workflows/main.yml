@@ -19,4 +19,4 @@ jobs:
       run: mvn package
     - name: Deploy to GitHub Packages
       run:
-        mvn -X deploy mvn deploy -Dregistry=https://maven.pkg.github.com/gryphon-banking -Dtoken=${{ secrets.GITHUB_TOKEN }}
+        mvn -X deploy -Dregistry=https://maven.pkg.github.com/gryphon-banking -Dtoken=${{ secrets.GITHUB_TOKEN }}
